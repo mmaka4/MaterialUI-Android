@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".orderAcivity"
+    android:background="#eeeeee">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="208dp"
+        android:background="@drawable/gradient"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="98dp"
+            android:layout_centerHorizontal="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="#eeeeee"
+            android:layout_margin="12dp"
+            app:contentPadding="3dp"
+            android:elevation="1dp"
+            app:cardElevation="9dp"
+            app:cardCornerRadius="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dorice Ally"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/candara"
+                    android:layout_marginTop="65dp"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/name"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UI/UX Designer | Foodie | Tanzania"
+                    android:textSize="16sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/name"
+                    android:fontFamily="@font/opensans_regular"
+                    android:id="@+id/interest"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/interest"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:id="@+id/userstatus">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="start"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="293"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:layout_marginTop="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="POSTS"
+                            android:fontFamily="@font/opensans_regular"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="64dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="14.3k"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:layout_marginTop="20dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOLLOWERS"
+                            android:fontFamily="@font/opensans_regular"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="right"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="197"
+                            android:textStyle="bold"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:layout_marginTop="20dp"
+                            android:id="@+id/postsvalues"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="FOLLOWING"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/opensans_regular"
+                            android:id="@+id/posts"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="34dp">
+
+            <com.alexzh.circleimageview.CircleImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_margin="8dp"
+                android:src="@drawable/lady"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                app:view_shadowRadius="4dp"
+                app:view_shadowDx="0dp"
+                app:view_shadowDy="1.5dp"
+                app:view_shadowColor="@color/grey"
+                app:view_borderWidth="0dp"
+                app:view_selectedColor="@color/blue"
+                app:view_backgroundColor="@color/colorAccent"
+                app:view_borderColor="@color/blue"
+                android:id="@+id/profilepic"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relative1"
+        android:layout_below="@id/relative2"
+        android:layout_marginTop="10dp">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Collection"
+                android:textSize="19sp"
+                android:id="@+id/collection"
+                android:fontFamily="@font/raleway_semibold"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="10dp"
+            android:id="@+id/first">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create new"
+                android:textSize="16sp"
+                android:id="@+id/create"
+                android:textColor="@color/shadowblue"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/shimmer_frame">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:background="#eeeeee">
+
+                    <include layout="@layout/place_holder"/>
+                    <include layout="@layout/place_holder"/>
+                    <include layout="@layout/place_holder"/>
+                    <include layout="@layout/place_holder"/>
+                    <include layout="@layout/place_holder"/>
+                    <include layout="@layout/place_holder"/>
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/foodRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/first"
+            tools:listitem="@layout/item_food"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relative1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mostliked">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Most Liked Posts"
+                android:textSize="19sp"
+                android:id="@+id/mostlikedpost"
+                android:fontFamily="@font/raleway_semibold"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/mostliked">
+
+            <!--com.example.myapplication.HorizontalCarouselRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mostliked"
+                tools:listitem="@layout/item_food2"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="8dp"
+                android:scrollbars="none"
+                android:layoutAnimation="@anim/layout_animation"
+                android:id="@+id/item_list"
+                >
+
+            </com.example.myapplication.HorizontalCarouselRecyclerView-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/item_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                tools:listitem="@layout/item_food2"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:overScrollMode="never" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
