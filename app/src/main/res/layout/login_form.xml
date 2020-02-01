@@ -66,6 +66,8 @@
         android:layout_height="wrap_content"
         android:hint="@string/hintPassword"
         android:textColorHint="@color/grey"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/shadowblue"
         android:id="@+id/password">
 
         <com.google.android.material.textfield.TextInputEditText

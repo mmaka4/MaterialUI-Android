@@ -30,7 +30,7 @@ class ListFruits : AppCompatActivity() {
 
         listFruitscyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
-        var resId = R.anim.item_animation_from_bottom_scale
+        var resId = R.anim.slide_down
         val animation = AnimationUtils.loadAnimation(this, resId)
         listFruitscyclerView.startAnimation(animation)
 

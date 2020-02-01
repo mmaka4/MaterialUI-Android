@@ -1,6 +1,8 @@
 package com.example.myapplication
 
+import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+
 
 class Tunda{
     @SerializedName("id")
@@ -11,10 +13,18 @@ class Tunda{
     var price:String? = null
     @SerializedName("image")
     var image:String? = null
+
+    @SerializedName("queryString")
+    private val queryString: String? = null
 }
 
 
 class MatundaResponse {
    @SerializedName("matunda")
     var matunda: ArrayList<Tunda>? = null
+
+    @SerializedName("status")
+    val status: Boolean? = null
+//    @SerializedName("tunda")
+//    val tunda: ArrayList<Tunda>? = null
 }

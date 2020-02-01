@@ -10,20 +10,34 @@ import androidx.appcompat.app.AppCompatActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.update_layout.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
 
 class UpdateActivity : AppCompatActivity() {
 
-    private val PICK_IMAGE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.update_layout)
 
+        Log.i("Update Activity: ", "Triggered")
+
         val tundaString = intent.getStringExtra("tundaData")
         val gson = Gson()
         val tunda = gson.fromJson<Tunda>(tundaString,Tunda::class.java)
+
+        Log.i("Fetched Data", tunda.id+" "+tunda.name+" "+tunda.price)
+
+
+
+        fruitName.setText(tunda.name)
+        fruitPrice.setText(tunda.price)
+
 
         foodImage.setOnClickListener {
             ImagePicker.with(this)
@@ -32,8 +46,56 @@ class UpdateActivity : AppCompatActivity() {
                 .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
                 .start()
 
-            //startActivityForResult(Intent.createChooser(intent, "Sellect Picture"), PICK_IMAGE)
         }
+
+        update_button.setOnClickListener {
+            val Id = tunda.id
+            val fname: String = fruitName.text.toString()
+            val fprice: String = fruitPrice.text.toString()
+
+            if (Id != null)
+                update(Id, fname, fprice)
+        }
+
+    }
+
+    private fun update(id:String, fruitName:String, fruitPrice:String){
+
+        Log.i("EditText Values",id+" "+fruitName+" "+fruitPrice)
+        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(
+            GsonConverterFactory.create()).build()
+
+        val api = retrofit.create(ServerApi::class.java)
+
+        val call = api.updateTunda(id, fruitName, fruitPrice)
+
+        val gson = Gson()
+
+        call.enqueue(object : Callback<MatundaResponse> {
+
+            override fun onResponse(
+                call: Call<MatundaResponse>,
+                response: Response<MatundaResponse>
+            ) {
+                Log.i("ResponseString",gson.toJson(response.body()))
+
+                if(response.isSuccessful){
+                    if (response.body()?.status!!){
+                        val intent = Intent(this@UpdateActivity, ListFruits::class.java)
+                        startActivity(intent)
+                    }
+
+//                    response.body()?.matunda
+                }else{
+
+                }
+            }
+
+            override fun onFailure(call: Call<MatundaResponse>, t: Throwable) {
+                Log.i("ResponseFailure1",t.message)
+            }
+
+        })
 
     }
 
