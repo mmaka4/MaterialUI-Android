@@ -39,5 +39,11 @@ interface ServerApi {
 
     @Multipart
     @POST("upload/image")
-    fun uploadImage(@Part file: MultipartBody.Part, @Part("description") requestBody: RequestBody): Call<StatusResponse>
+    fun uploadImage(@Part file: MultipartBody.Part,
+                    @Part("description") imgDescription: RequestBody,
+                    @Part("firstName") fName: RequestBody,
+                    @Part("lastName") lName: RequestBody,
+                    @Part("email") email: RequestBody,
+                    @Part("password") password: RequestBody
+                    ): Call<StatusResponse>
 }

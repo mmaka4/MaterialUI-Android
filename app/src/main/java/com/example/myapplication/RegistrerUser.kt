@@ -2,17 +2,30 @@ package com.example.myapplication
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import com.example.myapplication.NetworkClient.getRetrofitClient
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.registration_form.*
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.io.File
 import java.io.IOException
 
 class RegistrerUser : AppCompatActivity() {
 
+    lateinit var filePath: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,13 +33,18 @@ class RegistrerUser : AppCompatActivity() {
 
         profilepic.setOnClickListener {
             ImagePicker.with(this)
-                .crop()	    			//Crop image(Optional), Check Customization for more option
-                .compress(1024)			//Final image size will be less than 1 MB(Optional)
-                .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
+                .crop()                    //Crop image(Optional), Check Customization for more option
+                .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                .maxResultSize(
+                    1080,
+                    1080
+                )    //Final image resolution will be less than 1080 x 1080(Optional)
                 .start()
         }
 
         register_button.setOnClickListener {
+            uploadToServer(filePath)
+
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
@@ -47,12 +65,13 @@ class RegistrerUser : AppCompatActivity() {
                     e.printStackTrace()
                 }
 
-                //You can get File object from intent
-                //val file: File? = ImagePicker.getFile(data)
-
                 //You can also get File Path from intent
-                val filePath: String? = ImagePicker.getFilePath(data)
-                Log.i("FilePath: ", filePath)
+                filePath = ImagePicker.getFilePath(data).toString()
+                Log.i("MainActivity ","FilePath: $filePath")
+
+                //You can get File object from intent
+                val file: File? = ImagePicker.getFile(data)
+                Log.i("MainActivity", "Filename " + file?.name)
             }
             ImagePicker.RESULT_ERROR -> {
                 Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
@@ -62,4 +81,65 @@ class RegistrerUser : AppCompatActivity() {
             }
         }
     }
+
+
+    private fun uploadToServer(filePath: String) {
+        val gson = Gson()
+
+        val retrofit =
+            getRetrofitClient(this)
+        val uploadAPIs = retrofit!!.create(ServerApi::class.java)
+        //Create a file object using file path
+        val file = File(filePath)
+
+        // Create a request body with file and image media type
+        val fileReqBody: RequestBody = RequestBody.create(MediaType.parse("image/*"), file)
+
+        // Create MultipartBody.Part using file request-body,file name and part name
+        val part =
+            MultipartBody.Part.createFormData("image", file.name, fileReqBody)
+
+        //Create request body with text description and text media type
+        val description = RequestBody.create(MediaType.parse("text/plain"), "image-type")
+        val fName= RequestBody.create(MediaType.parse("text/plain"), firstnameTxt.text.toString())
+        val lName = RequestBody.create(MediaType.parse("text/plain"), lastnameTxt.text.toString())
+        val email = RequestBody.create(MediaType.parse("text/plain"), emailTxt.text.toString())
+        val password = RequestBody.create(MediaType.parse("text/plain"), passwordTxt.text.toString())
+
+        //
+        val call = uploadAPIs.uploadImage(part, description, fName, lName, email, password)
+
+        call.enqueue(object : Callback<StatusResponse> {
+            override fun onResponse(
+                call: Call<StatusResponse>,
+                response: Response<StatusResponse>
+            ) {
+                Log.i("ResponseString", gson.toJson(response.body()))
+                if (response.isSuccessful) {
+//                    if (response.body()?.status!!){
+//
+//                    }
+
+                    response.body()?.status
+                } else {
+
+                }
+            }
+
+            override fun onFailure(call: Call<StatusResponse>, t: Throwable?) {
+                Log.i("ResponseFailure1", t?.message)
+            }
+        })
+    }
+
+    fun Activity.isHasPermission(vararg permissions: String): Boolean {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            permissions.all { singlePermission ->
+                applicationContext.checkSelfPermission(singlePermission) == PackageManager.PERMISSION_GRANTED
+            }
+        else true
+    }
+
+    fun Activity.askPermission(vararg permissions: String, requestCode: Int) =
+        ActivityCompat.requestPermissions(this, permissions, requestCode)
 }

@@ -58,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/grey"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/firstnameTxt"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/grey"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/lastnameTxt"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -108,7 +110,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/grey"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/emailTxt"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,7 +138,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/grey"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/passwordTxt"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -162,7 +166,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/grey"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:id="@+id/confirmPasswordTxt"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
