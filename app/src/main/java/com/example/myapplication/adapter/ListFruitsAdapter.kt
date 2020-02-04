@@ -1,17 +1,19 @@
-package com.example.myapplication
+package com.example.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.provider.Settings.Global.getString
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.activity.UpdateActivity
+import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.R
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.Tunda
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_food.view.*
 import kotlinx.android.synthetic.main.list_fruits_item.view.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,7 +40,8 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
 
         holder.editIconLayout.setOnClickListener {
             val gson = Gson()
-            val intent  = Intent(context,UpdateActivity::class.java)
+            val intent  = Intent(context,
+                UpdateActivity::class.java)
             intent.putExtra("tundaData",gson.toJson(foodList[position]))
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(intent)

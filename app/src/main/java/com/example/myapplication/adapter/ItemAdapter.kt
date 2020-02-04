@@ -1,20 +1,23 @@
-package com.example.myapplication
+package com.example.myapplication.adapter
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.Item
+import com.example.myapplication.Model.Foody
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class ItemAdapter(val itemClick: (position:Int,item:Foody) -> Unit) : RecyclerView.Adapter<ItemViewHolder>() {
+class ItemAdapter(val itemClick: (position:Int,item: Foody) -> Unit) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private var items: ArrayList<Foody> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
-        ItemViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false))
+        ItemViewHolder(
+            LayoutInflater.from(
+                parent.context
+            ).inflate(R.layout.list_item, parent, false)
+        )
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(items[position])

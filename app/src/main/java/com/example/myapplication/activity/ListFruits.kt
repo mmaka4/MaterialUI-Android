@@ -1,17 +1,17 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.facebook.shimmer.Shimmer
+import com.example.myapplication.*
+import com.example.myapplication.adapter.ListFruitsAdapter
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.Model.Tunda
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_order.*
-import kotlinx.android.synthetic.main.list_fruits_item.*
 import kotlinx.android.synthetic.main.list_fruits_layout.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,7 +30,7 @@ class ListFruits : AppCompatActivity() {
 
         listFruitscyclerView.layoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
 
-        var resId = R.anim.slide_down
+        val resId = R.anim.slide_down
         val animation = AnimationUtils.loadAnimation(this, resId)
         listFruitscyclerView.startAnimation(animation)
 
@@ -72,13 +72,17 @@ class ListFruits : AppCompatActivity() {
 
                     mData = response.body()?.matunda!!
 
-                    lfAdapter = ListFruitsAdapter(mData,applicationContext)
+                    lfAdapter =
+                        ListFruitsAdapter(
+                            mData,
+                            applicationContext
+                        )
 
                     listFruitscyclerView.adapter = lfAdapter
 
 //                    response.body()?.matunda
                 }else{
-
+                    //to catch
                 }
             }
 

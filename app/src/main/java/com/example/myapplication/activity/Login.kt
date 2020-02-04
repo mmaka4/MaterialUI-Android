@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
 import android.content.Intent
 import android.os.Build
@@ -6,15 +6,16 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
-import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.myapplication.R
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.UserResponse
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.login_form.*
 import retrofit2.Call
 import retrofit2.Callback

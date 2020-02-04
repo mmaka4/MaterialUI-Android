@@ -1,5 +1,6 @@
-package com.example.myapplication
+package com.example.myapplication.api
 
+import com.example.myapplication.Model.*
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.api
 
 import android.content.Context
 import com.google.gson.GsonBuilder
@@ -10,10 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkClient {
     private const val BASE_URL = "http://192.168.43.233/battlefield/slimapp/public/"
     private var retrofit: Retrofit? = null
-    fun getRetrofitClient(context: Context?): Retrofit? {
+    fun getRetrofitClient(): Retrofit? {
         if (retrofit == null) {
-            val okHttpClient = OkHttpClient.Builder()
-                .build()
 
             val gson =  GsonBuilder()
                 .setLenient()

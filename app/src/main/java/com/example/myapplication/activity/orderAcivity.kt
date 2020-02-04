@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +10,14 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.example.myapplication.*
+import com.example.myapplication.adapter.FoodAdapter
+import com.example.myapplication.adapter.FoodyAdapter
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.FoodResponse
+import com.example.myapplication.Model.Foody
+import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.Model.Tunda
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_order.*
 import retrofit2.Call
@@ -17,7 +25,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 import kotlin.collections.ArrayList
 
 class orderAcivity : AppCompatActivity() {
@@ -34,7 +41,7 @@ class orderAcivity : AppCompatActivity() {
         backGroundColor()
         setContentView(R.layout.activity_order)
 
-        var resId = R.anim.slide_down
+        val resId = R.anim.slide_down
         val animation = AnimationUtils.loadAnimation(this, resId)
         name.startAnimation(animation)
         profilepic.startAnimation(animation)
@@ -43,7 +50,7 @@ class orderAcivity : AppCompatActivity() {
 //        val animation2 = AnimationUtils.loadAnimation(this, resId2)
 //        fruitsRecyclerView.startAnimation(animation2)
 
-        var resId3 = R.anim.slide_up
+        val resId3 = R.anim.slide_up
         val animationSU = AnimationUtils.loadAnimation(this, resId3)
         userstatus.startAnimation(animationSU)
 
@@ -82,7 +89,10 @@ class orderAcivity : AppCompatActivity() {
 
                     mData = response.body()?.matunda!!
 
-                    mAdapter = FoodAdapter(mData,applicationContext)
+                    mAdapter = FoodAdapter(
+                        mData,
+                        applicationContext
+                    )
 
                     foodRecyclerView.adapter = mAdapter
 
@@ -130,7 +140,10 @@ class orderAcivity : AppCompatActivity() {
 
                     fData = response.body()?.food!!
 
-                    fAdapter = FoodyAdapter(fData,applicationContext)
+                    fAdapter = FoodyAdapter(
+                        fData,
+                        applicationContext
+                    )
 
                     //foodRecyclerView.adapter = mAdapter
 

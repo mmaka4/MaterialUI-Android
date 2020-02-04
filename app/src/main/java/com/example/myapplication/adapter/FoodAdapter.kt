@@ -1,14 +1,16 @@
-package com.example.myapplication
+package com.example.myapplication.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
+import com.example.myapplication.Model.Tunda
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_food.view.*
 
-class FoodAdapter (val foodList:ArrayList<Tunda>,val context: Context): RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
+class FoodAdapter (val foodList:ArrayList<Tunda>, val context: Context): RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val layoutInflater = LayoutInflater.from(context)

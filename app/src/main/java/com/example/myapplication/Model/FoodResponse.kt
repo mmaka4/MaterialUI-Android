@@ -1,6 +1,5 @@
-package com.example.myapplication
+package com.example.myapplication.Model
 
-import androidx.annotation.DrawableRes
 import com.google.gson.annotations.SerializedName
 
 class Foody{

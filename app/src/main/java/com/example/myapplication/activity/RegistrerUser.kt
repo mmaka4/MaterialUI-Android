@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -10,7 +10,10 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import com.example.myapplication.NetworkClient.getRetrofitClient
+import com.example.myapplication.api.NetworkClient.getRetrofitClient
+import com.example.myapplication.R
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.StatusResponse
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.registration_form.*
@@ -87,7 +90,7 @@ class RegistrerUser : AppCompatActivity() {
         val gson = Gson()
 
         val retrofit =
-            getRetrofitClient(this)
+            getRetrofitClient()
         val uploadAPIs = retrofit!!.create(ServerApi::class.java)
         //Create a file object using file path
         val file = File(filePath)

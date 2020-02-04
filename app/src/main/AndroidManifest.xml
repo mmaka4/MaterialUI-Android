@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login" android:theme="@style/MTheme">
+        <activity android:name=".activity.Login" android:theme="@style/MTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,10 +22,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".orderAcivity" android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".RegistrerUser" android:theme="@style/MTheme"></activity>
-        <activity android:name=".ListFruits" android:theme="@style/MTheme"></activity>
-        <activity android:name=".UpdateActivity" android:theme="@style/MTheme"></activity>
+        <activity android:name=".activity.orderAcivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activity.RegistrerUser" android:theme="@style/MTheme"/>
+        <activity android:name=".activity.ListFruits" android:theme="@style/MTheme"/>
+        <activity android:name=".activity.UpdateActivity" android:theme="@style/MTheme"/>
     </application>
 
 </manifest>

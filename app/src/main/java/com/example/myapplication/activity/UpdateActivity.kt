@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,10 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.R
+import com.example.myapplication.api.ServerApi
+import com.example.myapplication.Model.Tunda
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.update_layout.*
@@ -29,7 +33,8 @@ class UpdateActivity : AppCompatActivity() {
 
         val tundaString = intent.getStringExtra("tundaData")
         val gson = Gson()
-        val tunda = gson.fromJson<Tunda>(tundaString,Tunda::class.java)
+        val tunda = gson.fromJson<Tunda>(tundaString,
+            Tunda::class.java)
 
         Log.i("Fetched Data", tunda.id+" "+tunda.name+" "+tunda.price)
 

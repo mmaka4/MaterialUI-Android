@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.Utils
 
 
 import android.animation.ArgbEvaluator
@@ -12,14 +12,19 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.myapplication.R
 
 class HorizontalCarouselRecyclerView(
     context: Context,
     attrs: AttributeSet
 ) : RecyclerView(context, attrs) {
 
-    private val activeColor by lazy { ContextCompat.getColor(context, R.color.blue) }
-    private val inactiveColor by lazy { ContextCompat.getColor(context, R.color.gray) }
+    private val activeColor by lazy { ContextCompat.getColor(context,
+        R.color.blue
+    ) }
+    private val inactiveColor by lazy { ContextCompat.getColor(context,
+        R.color.gray
+    ) }
     private var viewsToChangeColor: List<Int> = listOf()
 
     fun <T : ViewHolder> initialize(newAdapter: Adapter<T>) {
