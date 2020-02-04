@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.activity.UpdateActivity
 import com.example.myapplication.Model.MatundaResponse
@@ -22,6 +23,10 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>(){
+
+    lateinit var lfAdapter: ListFruitsAdapter
+    lateinit var mData: ArrayList<Tunda>
+    var pos: Int = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val layoutInflater = LayoutInflater.from(context)
@@ -50,6 +55,9 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
 
         holder.deleteIconLayout.setOnClickListener {
             val id: String = foodList[position].id.toString()
+            pos = position
+            foodList.removeAt(position)
+            notifyItemRemoved(position)
             update(id)
         }
     }
@@ -80,13 +88,22 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
                 call: Call<MatundaResponse>,
                 response: Response<MatundaResponse>
             ) {
-                Log.i("ResponseString",gson.toJson(response.body()))
+                Log.i("ResponseString LF",gson.toJson(response.body()))
 
                 if(response.isSuccessful){
-                    if (response.body()?.status!!){
+                    //if (response.body()?.status!!){
 //                        val intent = Intent(this@ListFruitsAdapter, ListFruits::class.java)
 //                        startActivity(intent)
-                    }
+
+                        mData = ArrayList()
+
+                        mData = response.body()?.matunda!!
+
+                        lfAdapter = ListFruitsAdapter(mData, context)
+
+                       // lfAdapter.notifyItemRemoved(pos)
+
+                   // }
 
 //                    response.body()?.matunda
                 }else{
@@ -101,4 +118,6 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
         })
 
     }
+
+
 }
