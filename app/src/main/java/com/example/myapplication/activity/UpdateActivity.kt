@@ -8,11 +8,12 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.Model.Tunda
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.Model.Tunda
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.update_layout.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -38,11 +39,13 @@ class UpdateActivity : AppCompatActivity() {
 
         Log.i("Fetched Data", tunda.id+" "+tunda.name+" "+tunda.price)
 
-
+        val resId = this.resources.getIdentifier(tunda.image, "id", packageName)
+        Log.i("Resorce Image ", ""+resId)
 
         fruitName.setText(tunda.name)
         fruitPrice.setText(tunda.price)
-
+        //foodImage.setImageResource(resId)
+        Picasso.get().load(resources.getString(R.string.imageFruitsURL)+tunda.image).into(foodImage)
 
         foodImage.setOnClickListener {
             ImagePicker.with(this)
