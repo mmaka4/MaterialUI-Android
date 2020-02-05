@@ -27,6 +27,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import cn.pedant.SweetAlert.SweetAlertDialog
+import android.graphics.Color
 
 class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, val activity: Activity): RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>(){
 
@@ -62,7 +64,25 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
         holder.deleteIconLayout.setOnClickListener {
             val iD: String = foodList[position].id.toString()
 
+         SweetAlertDialog(activity, SweetAlertDialog.WARNING_TYPE)
+        .setTitleText("Are you sure?")
+        .setContentText("To delete "+ foodList[position].name +" data ?")
+        .setConfirmText("Delete!")
+        .setConfirmClickListener {
+                sweetAlertDialog: SweetAlertDialog? ->
+                        sweetAlertDialog?.setTitleText("Deleted!")
+                                        ?.setContentText(foodList[position].name +" has been deleted!")
+                                        ?.setConfirmText("OK")
+                                        ?.setConfirmClickListener(null)
+                                        ?.changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
 
+                                        update(iD)
+                                        foodList.removeAt(position)
+                                        notifyItemRemoved(position)
+        }
+        .setCancelButton("Cancel") { sweetAlertDialog: SweetAlertDialog? -> sweetAlertDialog?.dismissWithAnimation()
+        }
+        .show()
 
 //            val dialogBuilder = AlertDialog.Builder(activity)
 //
