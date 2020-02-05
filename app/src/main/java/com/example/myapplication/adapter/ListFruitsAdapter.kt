@@ -66,7 +66,7 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
 
          SweetAlertDialog(activity, SweetAlertDialog.WARNING_TYPE)
         .setTitleText("Are you sure?")
-        .setContentText("To delete "+ foodList[position].name +" data ?")
+        .setContentText("You want to delete "+ foodList[position].name +" data !")
         .setConfirmText("Delete!")
         .setConfirmClickListener {
                 sweetAlertDialog: SweetAlertDialog? ->
