@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray3">
 
-    <com.google.android.material.button.MaterialButton
+    <!--com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
         style="@style/Widget.MaterialComponents.Button"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
@@ -18,7 +18,7 @@
         android:textSize="16sp"
         android:backgroundTint="@color/shadowblue"
         android:textColor="@color/white"
-        android:text="Update Fruits"/>
+        android:text="Update Fruits"/-->
 
     <ScrollView
         android:layout_width="match_parent"

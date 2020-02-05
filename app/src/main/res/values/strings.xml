@@ -18,4 +18,6 @@
     <string name="delete">Delete</string>
     <string name="fruitName">Fruit name</string>
     <string name="fruitPrice">Fruit price</string>
+    <string name="dialogMessage">Do yo really want to delete this item</string>
+    <string name="dialogTitle">Delete an item</string>
 </resources>

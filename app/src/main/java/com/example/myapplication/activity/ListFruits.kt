@@ -1,9 +1,11 @@
 package com.example.myapplication.activity
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.*
@@ -35,12 +37,6 @@ class ListFruits : AppCompatActivity() {
         listFruitscyclerView.startAnimation(animation)
 
         loadFruits()
-
-//        edit.setOnClickListener {
-//            //Toast.makeText(this@Login, "You clicked me.", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, Login::class.java)
-//            startActivity(intent)
-//        }
     }
 
     private fun loadFruits(){
@@ -75,7 +71,8 @@ class ListFruits : AppCompatActivity() {
                     lfAdapter =
                         ListFruitsAdapter(
                             mData,
-                            applicationContext
+                            applicationContext,
+                            this@ListFruits
                         )
 
                     listFruitscyclerView.adapter = lfAdapter

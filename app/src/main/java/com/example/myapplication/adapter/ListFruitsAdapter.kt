@@ -1,11 +1,15 @@
 package com.example.myapplication.adapter
 
+import android.app.Activity
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.activity.UpdateActivity
@@ -13,6 +17,8 @@ import com.example.myapplication.Model.MatundaResponse
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
 import com.example.myapplication.Model.Tunda
+import com.example.myapplication.activity.ListFruits
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_fruits_item.view.*
@@ -22,7 +28,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>(){
+class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, val activity: Activity): RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>(){
 
     lateinit var lfAdapter: ListFruitsAdapter
     lateinit var mData: ArrayList<Tunda>
@@ -54,11 +60,26 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
         }
 
         holder.deleteIconLayout.setOnClickListener {
-            val id: String = foodList[position].id.toString()
-            pos = position
-            foodList.removeAt(position)
-            notifyItemRemoved(position)
-            update(id)
+            val iD: String = foodList[position].id.toString()
+
+
+
+//            val dialogBuilder = AlertDialog.Builder(activity)
+//
+//            dialogBuilder.setMessage("Do you really want to delete "+ foodList[position].name +" ?")
+//                .setCancelable(false)
+//                .setIcon(android.R.drawable.ic_dialog_alert)
+//                .setPositiveButton("Proceed") { dialog, id -> update(iD)
+//                    foodList.removeAt(position)
+//                    notifyItemRemoved(position)
+//                }
+//                .setNegativeButton("Cancel", DialogInterface.OnClickListener {
+//                        dialog, id -> dialog.cancel()
+//                })
+//
+//            val alert = dialogBuilder.create()
+//            alert.setTitle(R.string.dialogTitle)
+//            alert.show()
         }
     }
 
@@ -99,7 +120,7 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context): R
 
                         mData = response.body()?.matunda!!
 
-                        lfAdapter = ListFruitsAdapter(mData, context)
+                        lfAdapter = ListFruitsAdapter(mData, context, activity)
 
                        // lfAdapter.notifyItemRemoved(pos)
 
