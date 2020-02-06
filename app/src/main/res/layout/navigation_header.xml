@@ -29,14 +29,14 @@
             app:view_borderColor="@color/blue"
             android:id="@+id/profilepic"/>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="dorice89@gmail.com"-->
-<!--            android:layout_below="@id/profilepic"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:layout_marginBottom="5dp"-->
-<!--            android:layout_marginStart="5dp"/>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dorice89@gmail.com"
+            android:layout_below="@id/profilepic"
+            android:textColor="@color/white"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"/>
     </RelativeLayout>
 
 </LinearLayout>
