@@ -1,5 +1,6 @@
 package com.example.myapplication.activity
 
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -49,6 +50,17 @@ class Login : AppCompatActivity() {
         signupText.setOnClickListener {
             val intent = Intent(this, RegistrerUser::class.java)
             startActivity(intent)
+        }
+
+        if (image != null) {
+            ValueAnimator.ofFloat(0f, -40f, 50f).apply {
+                addUpdateListener { animation ->
+                    image.arcHeight = (animation.animatedValue as Float)
+                }
+                duration = 8000
+                repeatCount = ValueAnimator.INFINITE
+                repeatMode = ValueAnimator.REVERSE
+            }.start()
         }
     }
 
