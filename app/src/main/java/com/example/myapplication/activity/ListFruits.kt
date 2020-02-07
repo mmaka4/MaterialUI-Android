@@ -60,14 +60,14 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
         navView = findViewById(R.id.nav_view)
         val headerView = navView.getHeaderView(0)
-        var navUseremail = headerView.user_email
-        var navUserpic = headerView.user_profilepic
+        val navUseremail = headerView.user_email
+        val navUserpic = headerView.user_profilepic
 
         if (userInfo.email!!.isNotEmpty()) {
             navUseremail.text = userInfo.email
         }
 
-        var imgUrl = getString(R.string.userImageURL) + userInfo.image
+        val imgUrl = getString(R.string.userImageURL) + userInfo.image
         Log.i("imageURL", imgUrl)
         if (imgUrl.isEmpty()) { //url.isEmpty()
             Picasso.get()
@@ -75,7 +75,6 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 .placeholder(R.drawable.profile_pic2)
                 .error(R.drawable.profile_pic2)
                 .into(navUserpic)
-
 
         } else {
             Picasso.get()
@@ -133,7 +132,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.nav_drawer)
-        navView = findViewById(R.id.nav_view)
+        //navView = findViewById(R.id.nav_view)
 
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, 0, 0
@@ -142,6 +141,10 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         toggle.syncState()
 
         navView.setNavigationItemSelectedListener(this)
+
+        backLayout.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
