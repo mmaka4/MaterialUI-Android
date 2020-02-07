@@ -66,6 +66,7 @@ class UpdateActivity : AppCompatActivity() {
                 update(Id, fname, fprice)
         }
 
+
         backLayout.setOnClickListener {
             finish()
         }
