@@ -22,52 +22,66 @@
         android:backgroundTint="@color/shadowblue"
         android:textColor="@color/white"
         android:text="Update Fruits"/-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.facebook.shimmer.ShimmerFrameLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/shimmer_frame2">
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:background="#eeeeee">
+                android:layout_height="wrap_content">
 
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
-                <include layout="@layout/place_holder2"/>
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmer_frame2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="#eeeeee"
+                        android:orientation="vertical">
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+
+                        <include layout="@layout/place_holder2" />
+                    </LinearLayout>
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
             </LinearLayout>
-        </com.facebook.shimmer.ShimmerFrameLayout>
 
-    </LinearLayout>
+        </ScrollView>
 
-    </ScrollView>
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/itemsswipetorefresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -85,7 +99,7 @@
             android:visibility="gone"/>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <com.google.android.material.appbar.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/content_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -113,6 +127,27 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape2"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:padding="5dp"
+        android:id="@+id/backLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tint="@color/white"
+            android:src="@drawable/ic_arrow_back_black_24dp"/>
+    </RelativeLayout>
+
+    </RelativeLayout>
 
     <com.shreyaspatil.material.navigationview.MaterialNavigationView
         android:id="@+id/nav_view"

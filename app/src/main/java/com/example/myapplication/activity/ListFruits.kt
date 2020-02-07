@@ -51,10 +51,12 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
         val userString = intent.getStringExtra("userData")
         val gson = Gson()
-        val userInfo = gson.fromJson<User>(userString,
-            User::class.java)
+        val userInfo = gson.fromJson<User>(
+            userString,
+            User::class.java
+        )
 
-        Log.i("Fetched User Data", userInfo.id+" "+userInfo.email+" "+userInfo.image)
+        Log.i("Fetched User Data", userInfo.id + " " + userInfo.email + " " + userInfo.image)
 
         navView = findViewById(R.id.nav_view)
         val headerView = navView.getHeaderView(0)
@@ -65,7 +67,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             navUseremail.text = userInfo.email
         }
 
-        var imgUrl= getString(R.string.userImageURL)+ userInfo.image
+        var imgUrl = getString(R.string.userImageURL) + userInfo.image
         Log.i("imageURL", imgUrl)
         if (imgUrl.isEmpty()) { //url.isEmpty()
             Picasso.get()
@@ -75,15 +77,13 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 .into(navUserpic)
 
 
-        }else{
+        } else {
             Picasso.get()
-                .load(resources.getString(R.string.userImageURL)+userInfo.image)
+                .load(resources.getString(R.string.userImageURL) + userInfo.image)
                 .placeholder(R.drawable.profile_pic2)
                 .error(R.drawable.profile_pic2)
                 .into(navUserpic) //this is your ImageView
         }
-
-        //Picasso.get().load(resources.getString(R.string.userImageURL)+userInfo.image).into(user_profilepic)
 
         listFruitscyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
