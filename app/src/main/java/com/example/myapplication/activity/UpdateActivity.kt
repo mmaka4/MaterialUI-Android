@@ -14,7 +14,9 @@ import com.example.myapplication.api.ServerApi
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.list_fruits_layout.*
 import kotlinx.android.synthetic.main.update_layout.*
+import kotlinx.android.synthetic.main.update_layout.backLayout
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -53,7 +55,6 @@ class UpdateActivity : AppCompatActivity() {
                 .compress(1024)			//Final image size will be less than 1 MB(Optional)
                 .maxResultSize(1080, 1080)	//Final image resolution will be less than 1080 x 1080(Optional)
                 .start()
-
         }
 
         update_button.setOnClickListener {
@@ -63,6 +64,10 @@ class UpdateActivity : AppCompatActivity() {
 
             if (Id != null)
                 update(Id, fname, fprice)
+        }
+
+        backLayout.setOnClickListener {
+            finish()
         }
 
     }
