@@ -7,8 +7,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.Model.MatundaResponse
-import com.example.myapplication.Model.Tunda
+import com.example.myapplication.model.MatundaResponse
+import com.example.myapplication.model.Tunda
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
 import com.github.dhaval2404.imagepicker.ImagePicker

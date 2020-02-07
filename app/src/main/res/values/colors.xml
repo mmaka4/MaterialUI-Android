@@ -6,6 +6,7 @@
     <color name="grey">#778899</color>
     <color name="blue">#0f52ba</color>
     <color name="shadowblue">#0abab5</color>
+    <color name="shadowDarkblue">#40e0d0</color>
     <color name="white">#ffffff</color>
     <color name="startGrad">#f857a6</color>
     <color name="endGrad">#ff5858</color>

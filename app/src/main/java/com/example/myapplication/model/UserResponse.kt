@@ -1,4 +1,4 @@
-package com.example.myapplication.Model
+package com.example.myapplication.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -14,7 +14,8 @@ class User {
     var email: String? = null
     @SerializedName("password")
     var password: String? = null
-
+    @SerializedName("image")
+    var image: String? = null
 }
 
 class UserResponse {

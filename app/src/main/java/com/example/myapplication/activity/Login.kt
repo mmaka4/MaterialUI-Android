@@ -15,7 +15,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.Model.UserResponse
+import com.example.myapplication.model.User
+import com.example.myapplication.model.UserResponse
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.login_form.*
 import retrofit2.Call
@@ -26,6 +27,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class Login : AppCompatActivity() {
 
+    lateinit var uData: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         backGroundColor()
@@ -33,13 +36,12 @@ class Login : AppCompatActivity() {
 
         val content1 = getString(R.string.signupText)
         val spannableString1 = SpannableString(content1)
-        spannableString1.setSpan(UnderlineSpan(),0,content1.length,0)
+        spannableString1.setSpan(UnderlineSpan(), 0, content1.length, 0)
         signupText.text = spannableString1
 
         val loginButton = findViewById<Button>(R.id.login_button)
 
         loginButton.setOnClickListener {
-            Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
 
             val email = userName.text.toString()
             val password = passWord.text.toString()
@@ -64,11 +66,13 @@ class Login : AppCompatActivity() {
         }
     }
 
-    private fun login(email:String, password:String){
+    private fun login(email: String, password: String) {
 
-        Log.i("EditTexxt Values",email+" "+password)
-        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(
-            GsonConverterFactory.create()).build()
+        Log.i("EditTexxt Values", "$email $password")
+        val retrofit =
+            Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(
+                GsonConverterFactory.create()
+            ).build()
 
         val api = retrofit.create(ServerApi::class.java)
 
@@ -82,22 +86,27 @@ class Login : AppCompatActivity() {
                 call: Call<UserResponse>,
                 response: Response<UserResponse>
             ) {
-                Log.i("ResponseString",gson.toJson(response.body()))
+                Log.i("ResponseString", gson.toJson(response.body()))
 
-                if(response.isSuccessful){
-                    if (response.body()?.status!!){
+                if (response.isSuccessful) {
+                    //if (response.body()?.status!!) {
+                        uData = response.body()?.user!!
+
                         val intent = Intent(this@Login, ListFruits::class.java)
+                        val gson = Gson()
+                        intent.putExtra("userData", gson.toJson(uData))
+                        Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
-                    }
+                   // }
 
 //                    response.body()?.matunda
-                }else{
+                } else {
 
                 }
             }
 
             override fun onFailure(call: Call<UserResponse>, t: Throwable) {
-                Log.i("ResponseFailure1",t.message)
+                Log.i("ResponseFailure1", t.message)
             }
 
         })

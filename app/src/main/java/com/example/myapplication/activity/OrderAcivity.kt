@@ -14,10 +14,10 @@ import com.example.myapplication.*
 import com.example.myapplication.adapter.FoodAdapter
 import com.example.myapplication.adapter.FoodyAdapter
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.Model.FoodResponse
-import com.example.myapplication.Model.Foody
-import com.example.myapplication.Model.MatundaResponse
-import com.example.myapplication.Model.Tunda
+import com.example.myapplication.model.FoodResponse
+import com.example.myapplication.model.Foody
+import com.example.myapplication.model.MatundaResponse
+import com.example.myapplication.model.Tunda
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_order.*
 import retrofit2.Call

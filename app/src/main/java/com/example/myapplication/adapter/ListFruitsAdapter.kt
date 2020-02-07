@@ -2,23 +2,17 @@ package com.example.myapplication.adapter
 
 import android.app.Activity
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.activity.UpdateActivity
-import com.example.myapplication.Model.MatundaResponse
+import com.example.myapplication.model.MatundaResponse
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.Model.Tunda
-import com.example.myapplication.activity.ListFruits
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.example.myapplication.model.Tunda
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_fruits_item.view.*
@@ -28,9 +22,12 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import cn.pedant.SweetAlert.SweetAlertDialog
-import android.graphics.Color
 
-class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, val activity: Activity): RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>(){
+class ListFruitsAdapter(
+    private val foodList: ArrayList<Tunda>,
+    val context: Context,
+    val activity: Activity
+) : RecyclerView.Adapter<ListFruitsAdapter.FoodViewHolder>() {
 
     lateinit var lfAdapter: ListFruitsAdapter
     lateinit var mData: ArrayList<Tunda>
@@ -38,8 +35,8 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
         val layoutInflater = LayoutInflater.from(context)
-        val view:View = layoutInflater.inflate(R.layout.list_fruits_item,parent,false)
-        return FoodViewHolder(view,viewType)
+        val view: View = layoutInflater.inflate(R.layout.list_fruits_item, parent, false)
+        return FoodViewHolder(view, viewType)
     }
 
     override fun getItemCount(): Int {
@@ -49,13 +46,17 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
         holder.name.text = foodList[position].name
         holder.price.text = foodList[position].price
-        Picasso.get().load(context.resources.getString(R.string.imageFruitsURL)+foodList[position].image).into(holder.image)
+        Picasso.get()
+            .load(context.resources.getString(R.string.imageFruitsURL) + foodList[position].image)
+            .into(holder.image)
 
         holder.editIconLayout.setOnClickListener {
             val gson = Gson()
-            val intent  = Intent(context,
-                UpdateActivity::class.java)
-            intent.putExtra("tundaData",gson.toJson(foodList[position]))
+            val intent = Intent(
+                context,
+                UpdateActivity::class.java
+            )
+            intent.putExtra("tundaData", gson.toJson(foodList[position]))
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             context.startActivity(intent)
             Log.i("EditLayoutClicked: ", "Triggered")
@@ -64,25 +65,25 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
         holder.deleteIconLayout.setOnClickListener {
             val iD: String = foodList[position].id.toString()
 
-         SweetAlertDialog(activity, SweetAlertDialog.WARNING_TYPE)
-        .setTitleText("Are you sure?")
-        .setContentText("You want to delete "+ foodList[position].name +" data !")
-        .setConfirmText("Delete!")
-        .setConfirmClickListener {
-                sweetAlertDialog: SweetAlertDialog? ->
-                        sweetAlertDialog?.setTitleText("Deleted!")
-                                        ?.setContentText(foodList[position].name +" has been deleted!")
-                                        ?.setConfirmText("OK")
-                                        ?.setConfirmClickListener(null)
-                                        ?.changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
+            SweetAlertDialog(activity, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Are you sure?")
+                .setContentText("You want to delete " + foodList[position].name + " data !")
+                .setConfirmText("Delete!")
+                .setConfirmClickListener { sweetAlertDialog: SweetAlertDialog? ->
+                    sweetAlertDialog?.setTitleText("Deleted!")
+                        ?.setContentText(foodList[position].name + " has been deleted!")
+                        ?.setConfirmText("OK")
+                        ?.setConfirmClickListener(null)
+                        ?.changeAlertType(SweetAlertDialog.SUCCESS_TYPE)
 
-                                        update(iD)
-                                        foodList.removeAt(position)
-                                        notifyItemRemoved(position)
-        }
-        .setCancelButton("Cancel") { sweetAlertDialog: SweetAlertDialog? -> sweetAlertDialog?.dismissWithAnimation()
-        }
-        .show()
+                    update(iD)
+                    foodList.removeAt(position)
+                    notifyItemRemoved(position)
+                }
+                .setCancelButton("Cancel") { sweetAlertDialog: SweetAlertDialog? ->
+                    sweetAlertDialog?.dismissWithAnimation()
+                }
+                .show()
 
 //            val dialogBuilder = AlertDialog.Builder(activity)
 //
@@ -103,7 +104,7 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
         }
     }
 
-    inner class FoodViewHolder(itemView: View, viewType: Int): RecyclerView.ViewHolder(itemView){
+    inner class FoodViewHolder(itemView: View, viewType: Int) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.fruitName
         val price = itemView.fruitPrice
         val image = itemView.fruitImage
@@ -111,11 +112,13 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
         val deleteIconLayout = itemView.deleteIconLayout
     }
 
-    private fun update(id:String){
+    private fun update(id: String) {
 
-        Log.i("Delete Id of ",id)
-        val retrofit = Retrofit.Builder().baseUrl(context.resources.getString(R.string.serverURL)).addConverterFactory(
-            GsonConverterFactory.create()).build()
+        Log.i("Delete Id of ", id)
+        val retrofit = Retrofit.Builder().baseUrl(context.resources.getString(R.string.serverURL))
+            .addConverterFactory(
+                GsonConverterFactory.create()
+            ).build()
 
         val api = retrofit.create(ServerApi::class.java)
 
@@ -129,31 +132,31 @@ class ListFruitsAdapter (val foodList:ArrayList<Tunda>, val context: Context, va
                 call: Call<MatundaResponse>,
                 response: Response<MatundaResponse>
             ) {
-                Log.i("ResponseString LF",gson.toJson(response.body()))
+                Log.i("ResponseString LF", gson.toJson(response.body()))
 
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     //if (response.body()?.status!!){
 //                        val intent = Intent(this@ListFruitsAdapter, ListFruits::class.java)
 //                        startActivity(intent)
 
-                        mData = ArrayList()
+                    mData = ArrayList()
 
-                        mData = response.body()?.matunda!!
+                    mData = response.body()?.matunda!!
 
-                        lfAdapter = ListFruitsAdapter(mData, context, activity)
+                    lfAdapter = ListFruitsAdapter(mData, context, activity)
 
-                       // lfAdapter.notifyItemRemoved(pos)
+                    // lfAdapter.notifyItemRemoved(pos)
 
-                   // }
+                    // }
 
 //                    response.body()?.matunda
-                }else{
+                } else {
 
                 }
             }
 
             override fun onFailure(call: Call<MatundaResponse>, t: Throwable) {
-                Log.i("ResponseFailure1",t.message)
+                Log.i("ResponseFailure1", t.message)
             }
 
         })

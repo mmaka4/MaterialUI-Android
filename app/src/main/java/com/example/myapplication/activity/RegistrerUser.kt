@@ -13,7 +13,7 @@ import androidx.core.app.ActivityCompat
 import com.example.myapplication.api.NetworkClient.getRetrofitClient
 import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.Model.StatusResponse
+import com.example.myapplication.model.StatusResponse
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.registration_form.*

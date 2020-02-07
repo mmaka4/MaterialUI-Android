@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.Model.Foody
+import com.example.myapplication.model.Foody
 import com.example.myapplication.R
 import kotlinx.android.synthetic.main.list_item.view.*
 

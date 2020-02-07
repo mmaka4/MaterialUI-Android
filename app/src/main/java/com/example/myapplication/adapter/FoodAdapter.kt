@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.Model.Tunda
+import com.example.myapplication.model.Tunda
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_food.view.*
 

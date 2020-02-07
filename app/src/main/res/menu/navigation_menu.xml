@@ -4,12 +4,12 @@
         <item android:id="@+id/account"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="My Account"/>
-        <item android:id="@+id/settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="Settings"/>
         <item android:id="@+id/edit_profile"
             android:icon="@drawable/ic_create_black_24dp"
             android:title="Edit Profile"/>
+        <item android:id="@+id/sign_out"
+            android:icon="@drawable/ic_power_settings_new_black_24dp"
+            android:title="Sign out"/>
     </group>
 
     <item android:title="Others">
@@ -26,6 +26,9 @@
                 android:id="@+id/app_info"
                 android:icon="@drawable/ic_info_outline_black_24dp"
                 android:title="App Info"/>
+            <item android:id="@+id/settings"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Settings"/>
         </menu>
     </item>
 </menu>

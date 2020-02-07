@@ -1,4 +1,4 @@
-package com.example.myapplication.Model
+package com.example.myapplication.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -24,6 +24,4 @@ class MatundaResponse {
 
     @SerializedName("status")
     val status: Boolean? = null
-//    @SerializedName("tunda")
-//    val tunda: ArrayList<Tunda>? = null
 }

@@ -2,6 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="serverURL">http://192.168.43.233/battlefield/slimapp/public/</string>
     <string name="imageFruitsURL">http://192.168.43.233/battlefield/images/fruits/</string>
+    <string name="userImageURL">http://192.168.43.233/battlefield/slimapp/public/imagefolder/</string>
     <string name="imageFoodsURL">http://192.168.43.233/battlefield/images/foods/</string>
     <string name="restApiURL">http://dummy.restapiexample.com</string>
     <string name="hintUsername">Email/User name</string>
