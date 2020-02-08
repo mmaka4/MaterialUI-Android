@@ -1,5 +1,6 @@
 package com.example.myapplication.activity
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -45,13 +46,17 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
     lateinit var drawerLayout: DrawerLayout
     lateinit var navView: NavigationView
 
+    val gson = Gson()
+    private lateinit var userString: String
+    lateinit var userInfo: User
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_fruits_layout)
 
-        val userString = intent.getStringExtra("userData")
-        val gson = Gson()
-        val userInfo = gson.fromJson<User>(
+        userString = intent.getStringExtra("userData")
+
+        userInfo = gson.fromJson<User>(
             userString,
             User::class.java
         )
@@ -151,6 +156,9 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         when (item.itemId) {
             R.id.account -> {
                 Toast.makeText(this, "Account clicked", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, orderAcivity::class.java)
+                intent.putExtra("userData", gson.toJson(userInfo))
+                startActivity(intent)
             }
             R.id.settings -> {
                 Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()

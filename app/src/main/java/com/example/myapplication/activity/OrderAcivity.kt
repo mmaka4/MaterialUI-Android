@@ -14,11 +14,9 @@ import com.example.myapplication.*
 import com.example.myapplication.adapter.FoodAdapter
 import com.example.myapplication.adapter.FoodyAdapter
 import com.example.myapplication.api.ServerApi
-import com.example.myapplication.model.FoodResponse
-import com.example.myapplication.model.Foody
-import com.example.myapplication.model.MatundaResponse
-import com.example.myapplication.model.Tunda
+import com.example.myapplication.model.*
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_order.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -35,6 +33,8 @@ class orderAcivity : AppCompatActivity() {
     lateinit var fAdapter: FoodyAdapter
     lateinit var fData: ArrayList<Foody>
 
+    val gson = Gson()
+    private lateinit var userString: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +54,35 @@ class orderAcivity : AppCompatActivity() {
         val animationSU = AnimationUtils.loadAnimation(this, resId3)
         userstatus.startAnimation(animationSU)
 
+        userString = intent.getStringExtra("userData")
+
+        val userInfo = gson.fromJson<User>(
+            userString,
+            User::class.java
+        )
+
+        Log.i("User Data [OrederActy]", userInfo.id + " " + userInfo.email + " " + userInfo.image)
+
+        if (userInfo.email!!.isNotEmpty()) {
+            name.text = userInfo.email
+        }
+
+        val imgUrl = getString(R.string.userImageURL) + userInfo.image
+        Log.i("imageURL", imgUrl)
+        if (imgUrl.isEmpty()) { //url.isEmpty()
+            Picasso.get()
+                .load(R.drawable.profile_pic2)
+                .placeholder(R.drawable.profile_pic2)
+                .error(R.drawable.profile_pic2)
+                .into(profilepic)
+
+        } else {
+            Picasso.get()
+                .load(resources.getString(R.string.userImageURL) + userInfo.image)
+                .placeholder(R.drawable.profile_pic2)
+                .error(R.drawable.profile_pic2)
+                .into(profilepic) //this is your ImageView
+        }
 
         loadFruits()
         loadFood()
