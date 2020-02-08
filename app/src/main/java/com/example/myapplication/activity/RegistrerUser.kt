@@ -51,6 +51,10 @@ class RegistrerUser : AppCompatActivity() {
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
         }
+
+        backLayout.setOnClickListener {
+            finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -84,7 +88,6 @@ class RegistrerUser : AppCompatActivity() {
             }
         }
     }
-
 
     private fun uploadToServer(filePath: String) {
         val gson = Gson()

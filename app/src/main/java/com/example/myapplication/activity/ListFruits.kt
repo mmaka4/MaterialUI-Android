@@ -160,6 +160,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
             }
             R.id.sign_out -> {
                 Toast.makeText(this, "Sign  out clicked", Toast.LENGTH_SHORT).show()
+                finish()
             }
             R.id.share -> {
                 Toast.makeText(this, "Share clicked", Toast.LENGTH_SHORT).show()
