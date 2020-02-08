@@ -74,7 +74,7 @@ class RegistrerUser : AppCompatActivity() {
 
                 //You can also get File Path from intent
                 filePath = ImagePicker.getFilePath(data).toString()
-                Log.i("MainActivity ","FilePath: $filePath")
+                Log.i("MainActivity ", "FilePath: $filePath")
 
                 //You can get File object from intent
                 val file: File? = ImagePicker.getFile(data)
@@ -107,10 +107,11 @@ class RegistrerUser : AppCompatActivity() {
 
         //Create request body with text description and text media type
         val description = RequestBody.create(MediaType.parse("text/plain"), "image-type")
-        val fName= RequestBody.create(MediaType.parse("text/plain"), firstnameTxt.text.toString())
+        val fName = RequestBody.create(MediaType.parse("text/plain"), firstnameTxt.text.toString())
         val lName = RequestBody.create(MediaType.parse("text/plain"), lastnameTxt.text.toString())
         val email = RequestBody.create(MediaType.parse("text/plain"), emailTxt.text.toString())
-        val password = RequestBody.create(MediaType.parse("text/plain"), passwordTxt.text.toString())
+        val password =
+            RequestBody.create(MediaType.parse("text/plain"), passwordTxt.text.toString())
 
         //
         val call = uploadAPIs.uploadImage(part, description, fName, lName, email, password)

@@ -46,10 +46,6 @@ class orderAcivity : AppCompatActivity() {
         name.startAnimation(animation)
         profilepic.startAnimation(animation)
 
-//        var resId2 = R.anim.item_animation
-//        val animation2 = AnimationUtils.loadAnimation(this, resId2)
-//        fruitsRecyclerView.startAnimation(animation2)
-
         val resId3 = R.anim.slide_up
         val animationSU = AnimationUtils.loadAnimation(this, resId3)
         userstatus.startAnimation(animationSU)
@@ -84,14 +80,18 @@ class orderAcivity : AppCompatActivity() {
                 .into(profilepic) //this is your ImageView
         }
 
-        loadFruits()
-        loadFood()
+        backLayout.setOnClickListener {
+            finish()
+        }
 
+//        loadFruits()
+//        loadFood()
     }
 
-    private fun loadFruits(){
+    private fun loadFruits() {
 
-        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(GsonConverterFactory.create()).build()
+        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL))
+            .addConverterFactory(GsonConverterFactory.create()).build()
 
         val api = retrofit.create(ServerApi::class.java)
 
@@ -105,13 +105,13 @@ class orderAcivity : AppCompatActivity() {
                 call: Call<MatundaResponse>,
                 response: Response<MatundaResponse>
             ) {
-                if(response.isSuccessful){
-                    Log.i("ResponseString",gson.toJson(response.body()))
+                if (response.isSuccessful) {
+                    Log.i("ResponseString", gson.toJson(response.body()))
 
                     // stop animating Shimmer and hide the layout
-                    shimmer_frame.stopShimmer()
-                    shimmer_frame.visibility = View.GONE
-                    foodRecyclerView.visibility = View.VISIBLE
+//                    shimmer_frame.stopShimmer()
+//                    shimmer_frame.visibility = View.GONE
+//                    foodRecyclerView.visibility = View.VISIBLE
 
 
                     mData = ArrayList()
@@ -123,26 +123,26 @@ class orderAcivity : AppCompatActivity() {
                         applicationContext
                     )
 
-                    foodRecyclerView.adapter = mAdapter
+//                    foodRecyclerView.adapter = mAdapter
 
 //                    response.body()?.matunda
-                }else{
+                } else {
 
                 }
             }
 
             override fun onFailure(call: Call<MatundaResponse>, t: Throwable) {
-                Log.i("ResponseFailure1",t.message)
+                Log.i("ResponseFailure1", t.message)
             }
 
         })
 
     }
 
+    private fun loadFood() {
 
-    private fun loadFood(){
-
-        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(GsonConverterFactory.create()).build()
+        val retrofit = Retrofit.Builder().baseUrl(getString(R.string.serverURL))
+            .addConverterFactory(GsonConverterFactory.create()).build()
 
         val api = retrofit.create(ServerApi::class.java)
 
@@ -156,14 +156,13 @@ class orderAcivity : AppCompatActivity() {
                 call: Call<FoodResponse>,
                 response: Response<FoodResponse>
             ) {
-                if(response.isSuccessful){
-                    Log.i("ResponseString",gson.toJson(response.body()))
+                if (response.isSuccessful) {
+                    Log.i("ResponseString", gson.toJson(response.body()))
 
                     // stop animating Shimmer and hide the layout
-                    shimmer_frame.stopShimmer()
-                    shimmer_frame.visibility = View.GONE
-                    foodRecyclerView.visibility = View.VISIBLE
-
+//                    shimmer_frame.stopShimmer()
+//                    shimmer_frame.visibility = View.GONE
+//                    foodRecyclerView.visibility = View.VISIBLE
 
                     fData = ArrayList()
 
@@ -179,16 +178,16 @@ class orderAcivity : AppCompatActivity() {
                     //val list = listOf(fData)
 
                     //itemAdapter.setItems(fData)
-                    item_list.adapter = fAdapter
+//                    item_list.adapter = fAdapter
 
 //                    response.body()?.matunda
-                }else{
+                } else {
 
                 }
             }
 
             override fun onFailure(call: Call<FoodResponse>, t: Throwable) {
-                Log.i("ResponseFailure2",t.message)
+                Log.i("ResponseFailure2", t.message)
             }
 
         })
@@ -201,7 +200,6 @@ class orderAcivity : AppCompatActivity() {
 //        return items
 //    }
 
-
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun backGroundColor() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
@@ -212,17 +210,13 @@ class orderAcivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        shimmer_frame.startShimmer()
+//        shimmer_frame.startShimmer()
     }
 
     override fun onPause() {
         super.onPause()
-        shimmer_frame.stopShimmer()
+//        shimmer_frame.stopShimmer()
     }
 }
 
-data class Item(
-    val title: String,
-    @DrawableRes val icon: Int
-)
 

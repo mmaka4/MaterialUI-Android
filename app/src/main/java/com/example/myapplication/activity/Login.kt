@@ -90,14 +90,14 @@ class Login : AppCompatActivity() {
 
                 if (response.isSuccessful) {
                     //if (response.body()?.status!!) {
-                        uData = response.body()?.user!!
+                    uData = response.body()?.user!!
 
-                        val intent = Intent(this@Login, ListFruits::class.java)
-                        val gson = Gson()
-                        intent.putExtra("userData", gson.toJson(uData))
-                        Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
-                        startActivity(intent)
-                   // }
+                    val intent = Intent(this@Login, ListFruits::class.java)
+                    val gson = Gson()
+                    intent.putExtra("userData", gson.toJson(uData))
+                    Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
+                    startActivity(intent)
+                    // }
 
 //                    response.body()?.matunda
                 } else {

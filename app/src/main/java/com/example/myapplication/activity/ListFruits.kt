@@ -74,6 +74,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
 
         val imgUrl = getString(R.string.userImageURL) + userInfo.image
         Log.i("imageURL", imgUrl)
+
         if (imgUrl.isEmpty()) { //url.isEmpty()
             Picasso.get()
                 .load(R.drawable.profile_pic2)
@@ -137,11 +138,11 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.nav_drawer)
-        //navView = findViewById(R.id.nav_view)
 
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar, 0, 0
         )
+
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
