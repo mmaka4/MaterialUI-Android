@@ -89,7 +89,7 @@ class Login : AppCompatActivity() {
                 Log.i("ResponseString", gson.toJson(response.body()))
 
                 if (response.isSuccessful) {
-                    //if (response.body()?.status!!) {
+                    if (response.body()?.status!!) {
                     uData = response.body()?.user!!
 
                     val intent = Intent(this@Login, ListFruits::class.java)
@@ -97,7 +97,7 @@ class Login : AppCompatActivity() {
                     intent.putExtra("userData", gson.toJson(uData))
                     Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
                     startActivity(intent)
-                    // }
+                     }
 
 //                    response.body()?.matunda
                 } else {
