@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
@@ -97,11 +98,17 @@ class Login : AppCompatActivity() {
                     intent.putExtra("userData", gson.toJson(uData))
                     Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
                     startActivity(intent)
-                     }
+                     }else {
+                        if (userName.text.isNullOrEmpty() || passWord.text.isNullOrEmpty()) {
+
+                        }else {
+                            login_error.visibility = View.VISIBLE
+                        }
+                    }
 
 //                    response.body()?.matunda
                 } else {
-
+//                    login_error.visibility = View.VISIBLE
                 }
             }
 

@@ -128,7 +128,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="5dp">
+            android:visibility="gone"
+            android:padding="5dp"
+            android:id="@+id/login_error">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
