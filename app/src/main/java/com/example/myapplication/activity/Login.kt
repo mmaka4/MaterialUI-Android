@@ -9,6 +9,7 @@ import android.text.style.UnderlineSpan
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -19,6 +20,7 @@ import com.example.myapplication.api.ServerApi
 import com.example.myapplication.model.User
 import com.example.myapplication.model.UserResponse
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.login_form.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -102,6 +104,9 @@ class Login : AppCompatActivity() {
                         if (userName.text.isNullOrEmpty() || passWord.text.isNullOrEmpty()) {
 
                         }else {
+//                            val resId = R.anim.bounce
+//                            val animation = AnimationUtils.loadAnimation(applicationContext, resId)
+//                            login_error.startAnimation(animation)
                             login_error.visibility = View.VISIBLE
                         }
                     }
