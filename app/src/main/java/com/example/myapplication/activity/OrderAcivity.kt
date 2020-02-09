@@ -45,7 +45,7 @@ class orderAcivity : AppCompatActivity() {
         val animation = AnimationUtils.loadAnimation(this, resId)
         name.startAnimation(animation)
         profilepic.startAnimation(animation)
-
+        
         val resId3 = R.anim.slide_up
         val animationSU = AnimationUtils.loadAnimation(this, resId3)
         userstatus.startAnimation(animationSU)
@@ -199,6 +199,7 @@ class orderAcivity : AppCompatActivity() {
 //        (0..40).map { items.add(possibleItems.random()) }
 //        return items
 //    }
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun backGroundColor() {

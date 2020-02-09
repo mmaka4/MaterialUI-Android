@@ -149,7 +149,8 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         navView.setNavigationItemSelectedListener(this)
 
         backLayout.setOnClickListener {
-            finish()
+            //finish()
+            drawerLayout.openDrawer(GravityCompat.START)
         }
     }
 
