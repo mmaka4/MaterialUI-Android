@@ -15,6 +15,7 @@
     <color name="gray">#9ca9aa</color>
     <color name="gray3">#eeeeee</color>
     <color name="black">#000</color>
+    <color name="red">#ff3232</color>
 
     <color name="user_input_color">#000</color>
     <color name="unfocused_color">#778899</color>
