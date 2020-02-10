@@ -96,14 +96,14 @@ class Login : AppCompatActivity() {
 
                 if (response.isSuccessful) {
                     if (response.body()?.status!!) {
-                    uData = response.body()?.user!!
+                        uData = response.body()?.user!!
 
-                    val intent = Intent(this@Login, ListFruits::class.java)
-                    val gson = Gson()
-                    intent.putExtra("userData", gson.toJson(uData))
-                    Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
-                    startActivity(intent)
-                     }else {
+                        val intent = Intent(this@Login, ListFruits::class.java)
+                        val gson = Gson()
+                        intent.putExtra("userData", gson.toJson(uData))
+                        Toast.makeText(this@Login, "Login successfully.", Toast.LENGTH_SHORT).show()
+                        startActivity(intent)
+                    } else {
                         if (userName.text.isNullOrEmpty() || passWord.text.isNullOrEmpty()) {
                             login_error.visibility = View.GONE
 
@@ -117,7 +117,7 @@ class Login : AppCompatActivity() {
 //                            passwordLayout.endIconMode = END_ICON_CUSTOM
 //                            passwordLayout.endIconDrawable = getDrawable(R.drawable.ic_report_black_24dp)
 
-                        }else {
+                        } else {
                             val resId = R.anim.shake
                             val animation = AnimationUtils.loadAnimation(applicationContext, resId)
                             login_error.startAnimation(animation)
