@@ -1,5 +1,7 @@
 # MaterialUI-Android-App
-It is a mobile application that perform all database operations CRUD [Create, Read, Update, Delete DATA]. Also there is login and register operations in this app. Backend I have used SLIM Framewok (PHP).)
+Coding Language: Kotlin
+Server communication: Retrofit (Posting & Getting data)
+UI design: Androidx
 
 ## Demo of this App<br/>
 ![](images/Gifs/20200210_172609.gif)=>
