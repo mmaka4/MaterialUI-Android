@@ -19,6 +19,7 @@ import com.example.myapplication.R
 import com.example.myapplication.api.ServerApi
 import com.example.myapplication.model.User
 import com.example.myapplication.model.UserResponse
+import com.google.android.material.textfield.TextInputLayout.*
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_order.*
 import kotlinx.android.synthetic.main.login_form.*
@@ -67,6 +68,8 @@ class Login : AppCompatActivity() {
                 repeatMode = ValueAnimator.REVERSE
             }.start()
         }
+
+        passwordLayout.endIconMode = END_ICON_PASSWORD_TOGGLE
     }
 
     private fun login(email: String, password: String) {
@@ -102,6 +105,15 @@ class Login : AppCompatActivity() {
                     startActivity(intent)
                      }else {
                         if (userName.text.isNullOrEmpty() || passWord.text.isNullOrEmpty()) {
+                            if (userName.text.isNullOrEmpty())
+                                userName.error = getString(R.string.emailRequired)
+
+                            if (passWord.text.isNullOrEmpty())
+                                passWord.error = getString(R.string.passwordRequired)
+
+//                            passwordLayout.endIconMode = END_ICON_NONE
+//                            passwordLayout.endIconMode = END_ICON_CUSTOM
+//                            passwordLayout.endIconDrawable = getDrawable(R.drawable.ic_report_black_24dp)
 
                         }else {
 //                            val resId = R.anim.bounce

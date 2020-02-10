@@ -25,4 +25,9 @@
     <string name="open">Open Drawer</string>
     <string name="close">Close Drawer</string>
     <string name="error_login">The username or password incorrect</string>
+
+    //Error messages
+    <string name="emailRequired">Please enter your Email</string>
+    <string name="passwordRequired">Please enter your Password</string>
+
 </resources>

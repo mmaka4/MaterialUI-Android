@@ -42,7 +42,10 @@
         android:hint="@string/hintUsername"
         app:boxStrokeColor="@color/shadowblue"
         android:textColorHint="@color/grey"
-
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/ic_report_black_24dp"
+        app:endIconTint="@color/red"
+        app:errorContentDescription="must not be empty"
         android:id="@+id/usename">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -67,9 +70,14 @@
         android:layout_height="wrap_content"
         android:hint="@string/hintPassword"
         android:textColorHint="@color/grey"
-        app:endIconMode="password_toggle"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_report_black_24dp"
         app:endIconTint="@color/shadowblue"
-        android:id="@+id/password">
+        app:errorEnabled="true"
+        app:boxCornerRadiusBottomEnd="4dp"
+        app:boxCornerRadiusBottomStart="4dp"
+        app:errorIconDrawable="@drawable/ic_report_black_24dp"
+        android:id="@+id/passwordLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -88,7 +96,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password"
+        app:layout_constraintTop_toBottomOf="@id/passwordLayout"
         android:layout_marginTop="10dp"
         android:id="@+id/signup">
 
