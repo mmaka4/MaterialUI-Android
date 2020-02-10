@@ -105,6 +105,8 @@ class Login : AppCompatActivity() {
                     startActivity(intent)
                      }else {
                         if (userName.text.isNullOrEmpty() || passWord.text.isNullOrEmpty()) {
+                            login_error.visibility = View.GONE
+
                             if (userName.text.isNullOrEmpty())
                                 userName.error = getString(R.string.emailRequired)
 
@@ -116,9 +118,9 @@ class Login : AppCompatActivity() {
 //                            passwordLayout.endIconDrawable = getDrawable(R.drawable.ic_report_black_24dp)
 
                         }else {
-//                            val resId = R.anim.bounce
-//                            val animation = AnimationUtils.loadAnimation(applicationContext, resId)
-//                            login_error.startAnimation(animation)
+                            val resId = R.anim.shake
+                            val animation = AnimationUtils.loadAnimation(applicationContext, resId)
+                            login_error.startAnimation(animation)
                             login_error.visibility = View.VISIBLE
                         }
                     }
