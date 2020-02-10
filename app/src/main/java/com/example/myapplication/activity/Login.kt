@@ -98,6 +98,8 @@ class Login : AppCompatActivity() {
                     if (response.body()?.status!!) {
                         uData = response.body()?.user!!
 
+                        login_error.visibility = View.GONE
+
                         val intent = Intent(this@Login, ListFruits::class.java)
                         val gson = Gson()
                         intent.putExtra("userData", gson.toJson(uData))
