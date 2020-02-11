@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:elevation="4dp"
-
         app:shape_arc_height="28dp"
         app:shape_arc_position="bottom"
         android:id="@+id/image">
@@ -63,7 +62,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/usename"
-
         android:layout_marginTop="5dp"
         android:layout_width="0dp"
         app:layout_constraintWidth_percent="0.7"
