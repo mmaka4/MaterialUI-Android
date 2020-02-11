@@ -148,7 +148,7 @@
                 android:textColor="@color/white" />
         </LinearLayout>
 
-        </LinearLayout>
+    </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/login_button"
