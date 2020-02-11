@@ -113,7 +113,6 @@
             android:layout_height="wrap_content"
             android:textColor="@color/gray"
             android:text="Forgot password?"
-
             android:textSize="14sp"
             android:layout_alignParentEnd="true"/>
 
