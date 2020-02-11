@@ -168,5 +168,4 @@
         android:textColor="@color/white"
         android:text="@string/loginTet"/>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
