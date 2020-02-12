@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:orientation="vertical">
 
-    <RelativeLayout
+        <RelativeLayout
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,7 @@
             android:id="@+id/profilepic"/>
     </RelativeLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:theme="@style/TextInputLayoutAppearance"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:theme="@style/TextInputLayoutAppearance"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +89,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:theme="@style/TextInputLayoutAppearance"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +115,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:theme="@style/TextInputLayoutAppearance"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
+        <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:theme="@style/TextInputLayoutAppearance"
         app:layout_constraintStart_toStartOf="parent"
@@ -173,7 +173,7 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/register_button"
         style="@style/Widget.MaterialComponents.Button"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
@@ -204,7 +204,6 @@
         android:padding="5dp"
         android:id="@+id/backLayout"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
