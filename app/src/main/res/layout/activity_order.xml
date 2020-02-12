@@ -13,7 +13,7 @@
         android:background="@drawable/gradient"
         android:id="@+id/background"/>
 
-    <RelativeLayout
+        <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/relative2">
@@ -183,22 +183,22 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/gradient"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="10dp"
-        android:padding="5dp"
-        android:id="@+id/backLayout">
-
-        <ImageView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:tint="@color/white"
-            android:src="@drawable/ic_arrow_back_black_24dp"/>
-    </RelativeLayout>
+            android:background="@drawable/gradient"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:id="@+id/backLayout">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:tint="@color/white"
+                android:src="@drawable/ic_arrow_back_black_24dp"/>
+        </RelativeLayout>
 
     <!--RelativeLayout
         android:layout_width="wrap_content"
