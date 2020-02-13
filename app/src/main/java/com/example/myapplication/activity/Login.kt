@@ -6,6 +6,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -36,6 +37,15 @@ class Login : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         backGroundColor()
+
+        val displayMetrics = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+
+        val width = displayMetrics.widthPixels
+        val height = displayMetrics.heightPixels
+
+        Log.i("Screen Resolution ", "$width $height")
+
         setContentView(R.layout.login_form)
 
         val content1 = getString(R.string.signupText)
@@ -75,6 +85,7 @@ class Login : AppCompatActivity() {
     private fun login(email: String, password: String) {
 
         Log.i("EditTexxt Values", "$email $password")
+        //Log.i("Screen Resolution ", "$width $height")
         val retrofit =
             Retrofit.Builder().baseUrl(getString(R.string.serverURL)).addConverterFactory(
                 GsonConverterFactory.create()
