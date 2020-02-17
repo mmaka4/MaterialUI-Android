@@ -57,7 +57,6 @@
             android:background="@color/grey"
             android:textSize="16sp"
             android:layout_below="@id/fruitName"/>
-
     </RelativeLayout>
 
     <RelativeLayout
