@@ -17,25 +17,25 @@
         android:orientation="vertical">
 
         <RelativeLayout
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/shape"
-        android:id="@+id/profileLayout">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_margin="3dp"
-            android:src="@drawable/profile_pic2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"
-            android:id="@+id/profilepic"/>
-    </RelativeLayout>
+            android:layout_marginTop="40dp"
+            android:background="@drawable/shape"
+            android:id="@+id/profileLayout">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_margin="3dp"
+                android:src="@drawable/profile_pic2"
+                android:layout_centerHorizontal="true"
+                android:scaleType="fitCenter"
+                android:id="@+id/profilepic"/>
+        </RelativeLayout>
 
         <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
