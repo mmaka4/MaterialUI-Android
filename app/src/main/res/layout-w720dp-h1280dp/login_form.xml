@@ -166,6 +166,6 @@
         android:textSize="18sp"
         android:backgroundTint="@color/shadowblue"
         android:textColor="@color/white"
-        android:text="@string/loginTet"/>
+        android:text="LOGIN 2"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
