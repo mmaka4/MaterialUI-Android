@@ -27,12 +27,12 @@
 
     </com.github.florent37.shapeofview.shapes.ArcView>
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/image">-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image">
         <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -186,5 +186,5 @@
             android:text="@string/loginTet"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    </ScrollView>-->
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
