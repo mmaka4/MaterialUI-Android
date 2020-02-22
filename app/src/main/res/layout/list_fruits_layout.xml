@@ -20,6 +20,7 @@
         android:backgroundTint="@color/shadowblue"
         android:textColor="@color/white"
         android:text="Update Fruits"/-->
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
