@@ -54,6 +54,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_fruits_layout)
 
+        //data from ListFruitsAdapter
         userString = intent.getStringExtra("userData")
 
         userInfo = gson.fromJson<User>(

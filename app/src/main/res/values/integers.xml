@@ -3,5 +3,5 @@
     <integer name="anim_duration_medium">7</integer>
     <integer name="anim_duration_minumum">5</integer>
     <integer name="anim_duration_maximum">9</integer>
-    <integer name="sample">9</integer>
+    <integer name="sample">20</integer>
 </resources>
