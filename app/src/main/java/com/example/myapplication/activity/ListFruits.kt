@@ -119,6 +119,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
         val animation = AnimationUtils.loadAnimation(this, resId)
         listFruitscyclerView.startAnimation(animation)
 
+        //populate ListFruits recyclerview
         loadFruits()
 
         //** Set the colors of the Pull To Refresh View
