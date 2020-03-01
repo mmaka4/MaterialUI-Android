@@ -91,6 +91,7 @@ class ListFruits : AppCompatActivity(), NavigationView.OnNavigationItemSelectedL
                 .into(navUserpic) //this is your ImageView
         }
 
+        //smooth scrolling cross recyclers V and H orientations
         listFruitscyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         listFruitscyclerView.addOnItemTouchListener(
